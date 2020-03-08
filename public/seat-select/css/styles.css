@@ -10,21 +10,24 @@ html {
     --page-padding: 24px;
     --heading-font: 'Permanent Marker', Arial, Helvetica, sans-serif;
     --content-font: 'Kosugi', Arial, Helvetica, sans-serif;
-    
+
     background: var(--orange);
 }
 
 
-main { 
+main {
     display: flex;
     flex-direction: column;
-    height: calc(100vh - 190px);;
+    height: calc(100vh - 190px);
+    ;
 }
+
 .header {
     background: var(--alabama-crimson);
     height: 120px;
     padding: var(--page-padding) 18px;
 }
+
 .content {
     flex: 1 0 auto;
     height: 100%;
@@ -36,33 +39,46 @@ main {
     width: 800px;
     margin: 0 auto;
 }
+
 .content.confirmation {
-    margin: 200px auto 120px;
+    margin: 80px auto 120px;
 }
+
 .footer-logo {
     background: url(../images/air-sling.png) no-repeat;
     background-size: contain;
     color: var(--alabama-crimson);
     margin: 0 auto;
     font-family: var(--heading-font);
-    font-size: 36px;
+    font-size: 50px;
     padding-left: 36px;
     width: fit-content;
 }
 
-h1, h2, h3, label, button {
+h1,
+h2,
+h3,
+label,
+button {
     color: #fff;
     font-family: var(--heading-font);
     font-size: 32px;
     text-align: center;
 }
-p, a, li, blockquote, input {
+
+p,
+a,
+li,
+blockquote,
+input {
     font-family: var(--content-font);
 }
+
 .main {
     position: relative;
     margin: 0 auto;
 }
+
 .header-logo {
     background-image: url(../images/air-sling.png), url(../images/logo_text.png);
     background-repeat: no-repeat;
@@ -73,6 +89,7 @@ p, a, li, blockquote, input {
     height: 60px;
     width: 550px;
 }
+
 .flight-select {
     background: var(--cadmium-red);
     height: 80px;
@@ -81,6 +98,7 @@ p, a, li, blockquote, input {
     padding: var(--page-padding);
     margin-bottom: var(--page-padding);
 }
+
 .flight-select input {
     width: 125px;
     margin-left: var(--page-padding);
@@ -113,17 +131,20 @@ input {
     font-family: var(--heading-font);
     font-size: 20px;
 }
+
 .content .user-info li {
     font-family: var(--heading-font);
     font-size: 18px;
     padding: 10px 0 12px;
 }
+
 .content .user-info li span {
     font-family: var(--content-font);
     font-size: 20px;
     font-style: italic;
     margin-left: 10px;
 }
+
 .content .user-info li:last-child {
     padding-bottom: 0;
 }
@@ -134,6 +155,7 @@ input {
     height: 220px;
     width: 250px;
 }
+
 .row {
     display: flex;
     justify-content: space-between;
@@ -141,9 +163,11 @@ input {
     width: 100%;
     list-style: none;
 }
+
 .row li:nth-child(3) {
     margin-right: 20px;
 }
+
 .row li:nth-child(4) {
     margin-left: 20px;
 }
@@ -162,9 +186,10 @@ input {
     position: absolute;
     cursor: pointer;
 }
+
 .seat span {
     border-radius: 2px;
-    color:var(--cadmium-red);
+    color: var(--cadmium-red);
     font-family: var(--content-font);
     font-size: 14px;
     display: flex;
@@ -238,6 +263,7 @@ input {
     height: 48px;
     min-width: 48%;
 }
+
 .button.confirm {
     background: var(--alabama-crimson);
     border-color: transparent;
@@ -259,4 +285,169 @@ input {
     left: calc(52% - 15px);
 }
 
-.form-container { display: none; }
+.form-container {
+    display: none;
+}
+
+
+.dropDown {
+    margin: 25px;
+    background-color: white;
+    font-size: 25px;
+    cursor: pointer;
+    font-family: var(--heading-font);
+
+}
+
+.dropdownAdmin {
+    position: absolute;
+    right: 44%;
+    margin: 20px;
+    background-color: white;
+    font-size: 25px;
+    cursor: pointer;
+    font-family: var(--heading-font);
+
+
+}
+
+.emailFinder[type=text] {
+    width: 200px;
+    font-size: 20px;
+}
+
+.emailFinder {
+    padding: 20px;
+}
+
+.emailForm {
+    margin-left: 250px;
+}
+
+.findFlight {
+    color: black;
+    cursor: pointer;
+    border-radius: 25px;
+    background-color: white;
+    transition: ease-in-out 0.5s all;
+
+}
+
+.findFlight:hover {
+    background-color: var(--alabama-crimson);
+
+}
+
+.reservationContent {
+    font-family: var(--heading-font);
+    font-size: 40px;
+    position: absolute;
+    bottom: 30%;
+    right: 20%;
+
+}
+
+.tags {
+    color: var(--alabama-crimson);
+}
+
+.home {
+    cursor: pointer;
+    color: var(--alabama-crimson);
+    font-size: 40px;
+    border-radius: 25px;
+    background-color: white;
+    transition: 0.5s all ease;
+    margin: auto;
+
+}
+
+.homePage {
+    margin: auto;
+    width: 20%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.home:hover {
+    background-color: var(--alabama-crimson);
+    color: white;
+
+}
+
+
+.receivedFlights {
+    color: var(--alabama-crimson);
+    font-size: 20px;
+    font-family: var(--heading-font);
+    padding-top: 30px;
+    margin-top: 80px;
+}
+
+#divId {
+    margin-bottom: 30px;
+}
+
+
+.enterFlight {
+    color: black;
+    border-radius: 25px;
+    background-color: white;
+    transition: ease-in-out 0.5s all;
+
+}
+
+.emailForm {
+    position: absolute;
+    left: 20%;
+    font-size: 30px;
+}
+
+.search {
+    color: black;
+    cursor: pointer;
+    border-radius: 25px;
+    background-color: white;
+    transition: ease-in-out 0.2s all;
+    font-size: 40px;
+
+}
+
+.search:hover {
+    background-color: var(--alabama-crimson);
+
+}
+
+.adminForm {
+    position: absolute;
+    right: 50px;
+}
+
+.adminBtn {
+    color: black;
+    cursor: pointer;
+    border-radius: 25px;
+    background-color: white;
+    transition: ease-in-out 0.2s all;
+    font-size: 40px;
+
+}
+
+.adminBtn:hover {
+    background-color: var(--alabama-crimson);
+
+
+}
+
+.admin[type=text] {
+    width: 150px;
+    font-size: 20px;
+}
+
+.adminMsg {
+    text-align: center;
+    color: var(--alabama-crimson);
+    font-size: 40px;
+    font-family: var(--heading-font);
+
+}

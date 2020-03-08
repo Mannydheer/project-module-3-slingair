@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,user-scalable=0, minimal-ui" />
+    <link rel="stylesheet" type="text/css" href="./css/styles.css" />
+    <title>Admin</title>
+</head>
+
+<body>
+    <div>
+        <form class='homePage' onsubmit="handleHome(event)">
+            <button class="home">Home Page</button>
+        </form>
+
+    </div>
+    <div class="adminMsg">
+    Access all flights by selecting a flight    
+    </div>
+
+
+<select id="adminDrop" class='dropdownAdmin' name="admin" required>
+    <option>Choose Flight</option>
+</select>
+
+<div class="receivedFlights" id="receivedFlights">
+
+
+</div>
+   
+    <script src="./js/admin.js"></script>
+
+
+
+</body>
+
+</html>
