@@ -1,66 +1,107 @@
-const flights = {
-    'SA231': [
-        { id: '1A', isAvailable: true },
-        { id: '1B', isAvailable: true },
-        { id: '1C', isAvailable: false },
-        { id: '1D', isAvailable: false },
-        { id: '1E', isAvailable: false },
-        { id: '1F', isAvailable: true },
-        { id: '2A', isAvailable: true },
-        { id: '2B', isAvailable: false },
-        { id: '2C', isAvailable: true },
-        { id: '2D', isAvailable: true },
-        { id: '2E', isAvailable: true },
-        { id: '2F', isAvailable: false },
-        { id: '3A', isAvailable: false },
-        { id: '3B', isAvailable: false },
-        { id: '3C', isAvailable: true },
-        { id: '3D', isAvailable: false },
-        { id: '3E', isAvailable: true },
-        { id: '3F', isAvailable: false },
-        { id: '4A', isAvailable: false },
-        { id: '4B', isAvailable: true },
-        { id: '4C', isAvailable: true },
-        { id: '4D', isAvailable: true },
-        { id: '4E', isAvailable: true },
-        { id: '4F', isAvailable: true },
-        { id: '5A', isAvailable: false },
-        { id: '5B', isAvailable: true },
-        { id: '5C', isAvailable: false },
-        { id: '5D', isAvailable: true },
-        { id: '5E', isAvailable: true },
-        { id: '5F', isAvailable: true },
-        { id: '6A', isAvailable: false },
-        { id: '6B', isAvailable: true },
-        { id: '6C', isAvailable: false },
-        { id: '6D', isAvailable: false },
-        { id: '6E', isAvailable: true },
-        { id: '6F', isAvailable: true },
-        { id: '7A', isAvailable: true },
-        { id: '7B', isAvailable: true },
-        { id: '7C', isAvailable: true },
-        { id: '7D', isAvailable: false },
-        { id: '7E', isAvailable: false },
-        { id: '7F', isAvailable: true },
-        { id: '8A', isAvailable: true },
-        { id: '8B', isAvailable: true },
-        { id: '8C', isAvailable: true },
-        { id: '8D', isAvailable: true },
-        { id: '8E', isAvailable: true },
-        { id: '8F', isAvailable: true },
-        { id: '9A', isAvailable: true },
-        { id: '9B', isAvailable: true },
-        { id: '9C', isAvailable: true },
-        { id: '9D', isAvailable: true },
-        { id: '9E', isAvailable: false },
-        { id: '9F', isAvailable: true },
-        { id: '10A', isAvailable: false },
-        { id: '10B', isAvailable: true },
-        { id: '10C', isAvailable: false },
-        { id: '10D', isAvailable: false },
-        { id: '10E', isAvailable: false },
-        { id: '10F', isAvailable: true },
-    ]
-}
+const request = require('request-promise');
 
-module.exports = { seats };
+
+//must be async as we are waiting for a response. 
+const flights = async () => {
+
+    try {
+        let allFlights = await request({
+            uri: 'https://journeyedu.herokuapp.com/slingair/flights',
+            headers: {
+                "Accept": "application/json"
+            }
+
+        })
+        //must parse it beforehand?
+
+        const actualFlights = JSON.parse(allFlights);
+        // console.log(parsedJoke)
+        return actualFlights
+    } catch (err) {
+        return err
+
+    }
+}
+//get each flight by targeting the url endpoint. 
+const eachFlight = async (currentFlightNumber) => {
+
+    try {
+        let eachFlight = await request({
+            uri: `https://journeyedu.herokuapp.com/slingair/flights/${currentFlightNumber}`,
+            headers: {
+                "Accept": "application/json"
+            }
+
+        })
+        const currentFlightArray = JSON.parse(eachFlight);
+        return currentFlightArray;
+    } catch (err) {
+        return err
+    }
+
+}
+const eachReservation = async (data) => {
+
+    try {
+        let eachFlight = await request({
+            uri: `https://journeyedu.herokuapp.com/slingair/users`,
+            headers: {
+                //when it's POST
+                'Content-Type': 'application/json'
+            },
+            json: true,
+            method: 'POST',
+            body: data
+        })
+
+        return eachFlight;
+
+        
+    } catch (err) {
+        return err
+    }
+
+
+}
+const eachEmail = async (email) => {
+
+    
+    try {
+        let allEmails = await request({
+            uri: `https://journeyedu.herokuapp.com/slingair/users/${email}`,
+            headers: {
+                "Accept": "application/json"
+            }
+
+        })
+        const emailData = JSON.parse(allEmails);
+        return emailData;
+    } catch (err) {
+        return err
+    }
+
+}
+const adminReservations = async () => {
+    
+    try {
+        let allreservations = await request({
+            uri: `https://journeyedu.herokuapp.com/slingair/users`,
+            headers: {
+                "Accept": "application/json"
+            }
+        })
+        const allreqReservations = JSON.parse(allreservations);
+        return allreqReservations;
+    } catch (err) {
+        return err
+    }
+
+}
+// module.exports = { seats };
+module.exports = {
+    flights,
+    eachFlight,
+    eachReservation,
+    eachEmail,
+    adminReservations
+};
